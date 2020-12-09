@@ -9,10 +9,10 @@ namespace GenericControllersExample.Controllers
     {
         public void Apply(ControllerModel controller)
         {
-            if (!controller.ControllerType.IsGenericType) return;
+            if (!controller.ControllerType.IsGenericType || controller.ControllerType.GenericTypeArguments.Length == 0) return;
 
             var genericType = controller.ControllerType.GenericTypeArguments[0];
-            var customNameAttribute = genericType.GetCustomAttribute<GeneratedControllerAttribute>();
+            var customNameAttribute = genericType.GetCustomAttribute<GenericControllerAttribute>();
 
             if (customNameAttribute?.Route != null)
             {

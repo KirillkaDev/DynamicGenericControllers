@@ -26,9 +26,10 @@ namespace GenericControllersExample
                 AddMvc(o => o.Conventions.Add(
                     new GenericControllerRouteConvention()
                 )).
-                ConfigureApplicationPartManager(m =>
-                    m.FeatureProviders.Add(new GenericTypeControllerFeatureProvider()
-                    ));
+                ConfigureApplicationPartManager(manager =>
+                {
+                    manager.FeatureProviders.Add(new GenericControllerByAttributeFeatureProvider());
+                });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

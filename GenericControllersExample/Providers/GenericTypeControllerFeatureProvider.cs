@@ -8,12 +8,12 @@ using Microsoft.AspNetCore.Mvc.Controllers;
 
 namespace GenericControllersExample.Providers
 {
-    public class GenericTypeControllerFeatureProvider : IApplicationFeatureProvider<ControllerFeature>
+    public class GenericControllerByAttributeFeatureProvider : IApplicationFeatureProvider<ControllerFeature>
     {
         public void PopulateFeature(IEnumerable<ApplicationPart> parts, ControllerFeature feature)
         {
-            var currentAssembly = typeof(GenericTypeControllerFeatureProvider).Assembly;
-            var candidates = currentAssembly.GetExportedTypes().Where(x => x.GetCustomAttributes<GeneratedControllerAttribute>().Any());
+            var currentAssembly = typeof(GenericControllerByAttributeFeatureProvider).Assembly;
+            var candidates = currentAssembly.GetExportedTypes().Where(x => x.GetCustomAttributes<GenericControllerAttribute>().Any());
 
             foreach (var candidate in candidates)
             {

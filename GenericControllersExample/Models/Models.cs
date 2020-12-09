@@ -3,31 +3,30 @@ using GenericControllersExample.Attributes;
 
 namespace GenericControllersExample.Models
 {
-    [GeneratedController("api/pen")]
-    public class Pen
+    public class Entity
     {
         public Guid Id { get; set; }
+    }
 
+    [GenericController("api/pen")]
+    public class Pen : Entity
+    {
         public string Title { get; set; }
 
         public int Length { get; set; }
     }
 
-    [GeneratedController("api/song")]
-    public class Song
+    [GenericController("api/song")]
+    public class Song : Entity
     {
-        public Guid Id { get; set; }
-
         public string Title { get; set; }
 
         public string Artist { get; set; }
     }
 
-    [GeneratedController("api/user")]
-    public class User
+    [GenericController("api/user")]
+    public class User : Entity
     {
-        public Guid Id { get; set; }
-
         public string Name { get; set; }
 
         public string Surname { get; set; }

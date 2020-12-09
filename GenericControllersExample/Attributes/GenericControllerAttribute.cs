@@ -3,9 +3,9 @@
 namespace GenericControllersExample.Attributes
 {
     [AttributeUsage(AttributeTargets.Class)]
-    public class GeneratedControllerAttribute : Attribute
+    public class GenericControllerAttribute : Attribute
     {
-        public GeneratedControllerAttribute(string route)
+        public GenericControllerAttribute(string route)
         {
             Route = route;
         }
